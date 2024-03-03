@@ -2,17 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+	
+	
+	const handleLogout = () => {
+		sessionStorage.setItem("Token", "token")
+		sessionStorage.removeItem("Token")
+	}
+
+
+
 	return (
-		<nav className="navbar navbar-light bg-light">
-			<div className="container">
+		
+		<nav className="navbar fw-bold bg-body-light ">
+			<div className="container-fluid bg-info d-flex justify-content-end">
 				<Link to="/">
-					<span className="navbar-brand mb-0 h1">React Boilerplate</span>
+					<a onClick={handleLogout} className="navbar-brand" href="#">Cerrar Sesión</a>
 				</Link>
-				<div className="ml-auto">
-					<Link to="/demo">
-						<button className="btn btn-primary">Check the Context in action</button>
-					</Link>
-				</div>
 			</div>
 		</nav>
 	);
